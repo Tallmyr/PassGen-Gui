@@ -1,7 +1,8 @@
-import dearpygui.dearpygui as dpg
 import re
 import secrets
 import string
+
+import dearpygui.dearpygui as dpg
 
 
 def generate_password() -> None:
