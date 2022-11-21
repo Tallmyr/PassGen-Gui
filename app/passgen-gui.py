@@ -3,6 +3,7 @@ import secrets
 import string
 
 import dearpygui.dearpygui as dpg
+import pyperclip
 
 
 def generate_password() -> None:
@@ -48,6 +49,10 @@ def generate_password() -> None:
     return
 
 
+def copy_to_clipboard() -> None:
+    pyperclip.copy(dpg.get_value(item="Password"))
+
+
 def main() -> None:
     """Setup DPG and Design UI"""
 
@@ -89,9 +94,10 @@ def main() -> None:
         dpg.add_spacer(height=20)
         dpg.add_text("Your new password:")
         dpg.add_input_text(tag="Password")
+        dpg.add_button(label="Copy to Clipboard", callback=copy_to_clipboard)
 
     # Display Everything
-    dpg.create_viewport(title="PassGen GUI", width=600, height=400)
+    dpg.create_viewport(title="PassGen GUI", width=550, height=430)
     dpg.setup_dearpygui()
     dpg.show_viewport()
     dpg.set_primary_window("Primary", True)
