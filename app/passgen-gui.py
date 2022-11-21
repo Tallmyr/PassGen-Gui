@@ -49,6 +49,29 @@ def generate_password() -> None:
     return
 
 
+def lock_if_invalid():
+    letters = dpg.get_value(item="Letters")
+    numbers = dpg.get_value(item="Numbers")
+    symbols = dpg.get_value(item="Symbols")
+
+    if not letters and not numbers and not symbols:
+        dpg.show_item(item="Gen_warning")
+        dpg.disable_item(item="Generate")
+    else:
+        dpg.hide_item(item="Gen_warning")
+        dpg.enable_item(item="Generate")
+
+
+def check_short_password(sender, app_data):
+    if sender != "Length":
+        return
+
+    if app_data <= 7:
+        dpg.show_item(item="length_warning")
+    else:
+        dpg.hide_item(item="length_warning")
+
+
 def copy_to_clipboard() -> None:
     pyperclip.copy(dpg.get_value(item="Password"))
 
@@ -65,9 +88,21 @@ def main() -> None:
 
         dpg.add_spacer(height=20)
         dpg.add_text("Please choose your settings:")
-        dpg.add_checkbox(label="Letters", default_value=True, tag="Letters")
-        dpg.add_checkbox(label="Numbers", default_value=True, tag="Numbers")
-        dpg.add_checkbox(label="Symbols", default_value=True, tag="Symbols")
+        dpg.add_checkbox(
+            label="Letters", default_value=True, tag="Letters", callback=lock_if_invalid
+        )
+        dpg.add_checkbox(
+            label="Numbers", default_value=True, tag="Numbers", callback=lock_if_invalid
+        )
+        dpg.add_checkbox(
+            label="Symbols", default_value=True, tag="Symbols", callback=lock_if_invalid
+        )
+        dpg.add_text(
+            "Invalid Selection, please select one or more character types",
+            tag="Gen_warning",
+            color=[255, 0, 0],
+            show=False,
+        )
 
         dpg.add_spacer(height=10)
         dpg.add_text("Allow similar Letters and symbols? (B/8, G/6, I/1 etc)")
@@ -80,15 +115,24 @@ def main() -> None:
             max_value=50,
             default_value=12,
             tag="Length",
+            callback=check_short_password
         )
-        dpg.add_button(label="Generate Password", callback=generate_password)
+        dpg.add_text(
+            "This is a short password. Are you sure you wish to do this?",
+            tag="length_warning",
+            show=False,
+            color=[255, 0, 0]
+        )
+        dpg.add_button(
+            label="Generate Password", callback=generate_password, tag="Generate"
+        )
         dpg.add_spacer(height=20)
         dpg.add_text("Your new password:")
         dpg.add_input_text(tag="Password")
         dpg.add_button(label="Copy to Clipboard", callback=copy_to_clipboard)
 
     # Display Everything
-    dpg.create_viewport(title="PassGen GUI", width=550, height=430)
+    dpg.create_viewport(title="PassGen GUI", width=550, height=500)
     dpg.setup_dearpygui()
     dpg.show_viewport()
     dpg.set_primary_window("Primary", True)
