@@ -6,11 +6,12 @@ authors = ["Simon Tallmyr"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.11"
+dearpygui = "^1.8.0"
 
 [tool.poetry.dev-dependencies]
-pytest = "^6.2.5"
-pytest-github-actions-annotate-failures = "^0.1.5"
+pytest = "^7.2.0"
+pytest-github-actions-annotate-failures = "^0.1.7"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

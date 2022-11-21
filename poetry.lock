@@ -1,32 +1,32 @@
 [[package]]
-name = "atomicwrites"
-version = "1.4.0"
-description = "Atomic file writes."
-category = "dev"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-
-[[package]]
 name = "attrs"
-version = "21.2.0"
+version = "22.1.0"
 description = "Classes Without Boilerplate"
 category = "dev"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+python-versions = ">=3.5"
 
 [package.extras]
-dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "mypy", "pytest-mypy-plugins", "zope.interface", "furo", "sphinx", "sphinx-notfound-page", "pre-commit"]
-docs = ["furo", "sphinx", "zope.interface", "sphinx-notfound-page"]
-tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "mypy", "pytest-mypy-plugins", "zope.interface"]
-tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "mypy", "pytest-mypy-plugins"]
+dev = ["cloudpickle", "coverage[toml] (>=5.0.2)", "furo", "hypothesis", "mypy (>=0.900,!=0.940)", "pre-commit", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "sphinx", "sphinx-notfound-page", "zope.interface"]
+docs = ["furo", "sphinx", "sphinx-notfound-page", "zope.interface"]
+tests = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy (>=0.900,!=0.940)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins", "zope.interface"]
+tests-no-zope = ["cloudpickle", "coverage[toml] (>=5.0.2)", "hypothesis", "mypy (>=0.900,!=0.940)", "pympler", "pytest (>=4.3.0)", "pytest-mypy-plugins"]
 
 [[package]]
 name = "colorama"
-version = "0.4.4"
+version = "0.4.6"
 description = "Cross-platform colored terminal text."
 category = "dev"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
+
+[[package]]
+name = "dearpygui"
+version = "1.8.0"
+description = "DearPyGui: A simple Python GUI Toolkit"
+category = "main"
+optional = false
+python-versions = ">=3.7"
 
 [[package]]
 name = "iniconfig"
@@ -60,48 +60,37 @@ dev = ["pre-commit", "tox"]
 testing = ["pytest", "pytest-benchmark"]
 
 [[package]]
-name = "py"
-version = "1.11.0"
-description = "library with cross-python path, ini-parsing, io, code, log facilities"
-category = "dev"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
-
-[[package]]
 name = "pyparsing"
-version = "3.0.6"
-description = "Python parsing module"
+version = "3.0.9"
+description = "pyparsing module - Classes and methods to define and execute parsing grammars"
 category = "dev"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.6.8"
 
 [package.extras]
 diagrams = ["jinja2", "railroad-diagrams"]
 
 [[package]]
 name = "pytest"
-version = "6.2.5"
+version = "7.2.0"
 description = "pytest: simple powerful testing with Python"
 category = "dev"
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 
 [package.dependencies]
-atomicwrites = {version = ">=1.0", markers = "sys_platform == \"win32\""}
 attrs = ">=19.2.0"
 colorama = {version = "*", markers = "sys_platform == \"win32\""}
 iniconfig = "*"
 packaging = "*"
 pluggy = ">=0.12,<2.0"
-py = ">=1.8.2"
-toml = "*"
 
 [package.extras]
-testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
+testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.7.2)", "requests", "xmlschema"]
 
 [[package]]
 name = "pytest-github-actions-annotate-failures"
-version = "0.1.5"
+version = "0.1.7"
 description = "pytest plugin to annotate failed tests with a workflow command for GitHub Actions"
 category = "dev"
 optional = false
@@ -110,31 +99,39 @@ python-versions = "*"
 [package.dependencies]
 pytest = ">=4.0.0"
 
-[[package]]
-name = "toml"
-version = "0.10.2"
-description = "Python Library for Tom's Obvious, Minimal Language"
-category = "dev"
-optional = false
-python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
-
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.10"
-content-hash = "a60bb36476bb8ef4997125c60c9328b55e77e563d2f8b01a6cafbe9f5476fe1e"
+python-versions = "^3.11"
+content-hash = "19dd8a2d131057f254f569aee6026cb5ee5fbddf1784f534496bfe712bbde519"
 
 [metadata.files]
-atomicwrites = [
-    {file = "atomicwrites-1.4.0-py2.py3-none-any.whl", hash = "sha256:6d1784dea7c0c8d4a5172b6c620f40b6e4cbfdf96d783691f2e1302a7b88e197"},
-    {file = "atomicwrites-1.4.0.tar.gz", hash = "sha256:ae70396ad1a434f9c7046fd2dd196fc04b12f9e91ffb859164193be8b6168a7a"},
-]
 attrs = [
-    {file = "attrs-21.2.0-py2.py3-none-any.whl", hash = "sha256:149e90d6d8ac20db7a955ad60cf0e6881a3f20d37096140088356da6c716b0b1"},
-    {file = "attrs-21.2.0.tar.gz", hash = "sha256:ef6aaac3ca6cd92904cdd0d83f629a15f18053ec84e6432106f7a4d04ae4f5fb"},
+    {file = "attrs-22.1.0-py2.py3-none-any.whl", hash = "sha256:86efa402f67bf2df34f51a335487cf46b1ec130d02b8d39fd248abfd30da551c"},
+    {file = "attrs-22.1.0.tar.gz", hash = "sha256:29adc2665447e5191d0e7c568fde78b21f9672d344281d0c6e1ab085429b22b6"},
 ]
 colorama = [
-    {file = "colorama-0.4.4-py2.py3-none-any.whl", hash = "sha256:9f47eda37229f68eee03b24b9748937c7dc3868f906e8ba69fbcbdd3bc5dc3e2"},
-    {file = "colorama-0.4.4.tar.gz", hash = "sha256:5941b2b48a20143d2267e95b1c2a7603ce057ee39fd88e7329b0c292aa16869b"},
+    {file = "colorama-0.4.6-py2.py3-none-any.whl", hash = "sha256:4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6"},
+    {file = "colorama-0.4.6.tar.gz", hash = "sha256:08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"},
+]
+dearpygui = [
+    {file = "dearpygui-1.8.0-cp310-cp310-macosx_10_6_x86_64.whl", hash = "sha256:bbad360b80a29a2deb40a8a2f73aa17fee1c5e817035e590509e067f3dc531d3"},
+    {file = "dearpygui-1.8.0-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:dabeff583800aea84bc537ab188a87398ed9e5e0537cc3e37fdc6e59d6b40495"},
+    {file = "dearpygui-1.8.0-cp310-cp310-manylinux1_x86_64.whl", hash = "sha256:7e93c41d64d884e1d9e8c6f991d51e4ed9dd9792f609d9a6f7399059c29d1706"},
+    {file = "dearpygui-1.8.0-cp310-cp310-win_amd64.whl", hash = "sha256:55006836de1d1a30ae6c03dd794d1798a4e9942b78f1239802afac4673c3fa38"},
+    {file = "dearpygui-1.8.0-cp311-cp311-macosx_10_6_x86_64.whl", hash = "sha256:cf5b76bbefa1348e5bf53a68cd7a1d24768819e0e9b5535168b378830a20b6c1"},
+    {file = "dearpygui-1.8.0-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:dfe7c746ab87b57ef84495462b36b0533435b3b6a94d241af7fe9219f54744f6"},
+    {file = "dearpygui-1.8.0-cp311-cp311-manylinux1_x86_64.whl", hash = "sha256:fe7ef89b9bd9ac34ab865b488b11fee5537767b63cedb436633054bd39bfc46e"},
+    {file = "dearpygui-1.8.0-cp311-cp311-win_amd64.whl", hash = "sha256:82c1ebd00d747e2c6d35eabaaacc851d29b38b49aad8f7726b6339aca2045aa2"},
+    {file = "dearpygui-1.8.0-cp37-cp37m-macosx_10_6_x86_64.whl", hash = "sha256:476748dbaaf1d4749959e6192218d64c700bd4a06c1a5d26a77b1b1ef49ca7ab"},
+    {file = "dearpygui-1.8.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:8ad1cc0a4af84e146f5191e86e54dcadff5a0863ae935ae34168af840848f0ab"},
+    {file = "dearpygui-1.8.0-cp37-cp37m-win_amd64.whl", hash = "sha256:e2cf13789ca6b91d56f1d83cfadc59ae21044bea0d19ff9d3c9b445d7ec05c8b"},
+    {file = "dearpygui-1.8.0-cp38-cp38-macosx_10_6_x86_64.whl", hash = "sha256:0cc9ce8c3b4ad324c8e224a6e483ad7d6c7919ab758c3bbeccaea75bb414f727"},
+    {file = "dearpygui-1.8.0-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:71e447e4f05200aae6839c45fccc08291c8e6b32540a4cf45f58e08cb1a0cf61"},
+    {file = "dearpygui-1.8.0-cp38-cp38-win_amd64.whl", hash = "sha256:f4637d217e0c773899947b73372e8685e45818af98e97838bee2c89a82d40c92"},
+    {file = "dearpygui-1.8.0-cp39-cp39-macosx_10_6_x86_64.whl", hash = "sha256:2ec09455e38e9b0ed182a4933b76a9fd6c3300aebe3d87c2b0cffe70c5b77b07"},
+    {file = "dearpygui-1.8.0-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:14ccf3cb6d877454a7943797e946e2b0f28ba7682e1cd876dac0a388853b01f8"},
+    {file = "dearpygui-1.8.0-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:525849a1217ee1f78c7321a54cb5d2ffb5a80a55e25da5ceeb83ca5cc21b99e8"},
+    {file = "dearpygui-1.8.0-cp39-cp39-win_amd64.whl", hash = "sha256:9c1233e887f956df7747468f51459f583760fc2e82670cf0dc9b8adf54c8a01a"},
 ]
 iniconfig = [
     {file = "iniconfig-1.1.1-py2.py3-none-any.whl", hash = "sha256:011e24c64b7f47f6ebd835bb12a743f2fbe9a26d4cecaa7f53bc4f35ee9da8b3"},
@@ -148,23 +145,15 @@ pluggy = [
     {file = "pluggy-1.0.0-py2.py3-none-any.whl", hash = "sha256:74134bbf457f031a36d68416e1509f34bd5ccc019f0bcc952c7b909d06b37bd3"},
     {file = "pluggy-1.0.0.tar.gz", hash = "sha256:4224373bacce55f955a878bf9cfa763c1e360858e330072059e10bad68531159"},
 ]
-py = [
-    {file = "py-1.11.0-py2.py3-none-any.whl", hash = "sha256:607c53218732647dff4acdfcd50cb62615cedf612e72d1724fb1a0cc6405b378"},
-    {file = "py-1.11.0.tar.gz", hash = "sha256:51c75c4126074b472f746a24399ad32f6053d1b34b68d2fa41e558e6f4a98719"},
-]
 pyparsing = [
-    {file = "pyparsing-3.0.6-py3-none-any.whl", hash = "sha256:04ff808a5b90911829c55c4e26f75fa5ca8a2f5f36aa3a51f68e27033341d3e4"},
-    {file = "pyparsing-3.0.6.tar.gz", hash = "sha256:d9bdec0013ef1eb5a84ab39a3b3868911598afa494f5faa038647101504e2b81"},
+    {file = "pyparsing-3.0.9-py3-none-any.whl", hash = "sha256:5026bae9a10eeaefb61dab2f09052b9f4307d44aee4eda64b309723d8d206bbc"},
+    {file = "pyparsing-3.0.9.tar.gz", hash = "sha256:2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"},
 ]
 pytest = [
-    {file = "pytest-6.2.5-py3-none-any.whl", hash = "sha256:7310f8d27bc79ced999e760ca304d69f6ba6c6649c0b60fb0e04a4a77cacc134"},
-    {file = "pytest-6.2.5.tar.gz", hash = "sha256:131b36680866a76e6781d13f101efb86cf674ebb9762eb70d3082b6f29889e89"},
+    {file = "pytest-7.2.0-py3-none-any.whl", hash = "sha256:892f933d339f068883b6fd5a459f03d85bfcb355e4981e146d2c7616c21fef71"},
+    {file = "pytest-7.2.0.tar.gz", hash = "sha256:c4014eb40e10f11f355ad4e3c2fb2c6c6d1919c73f3b5a433de4708202cade59"},
 ]
 pytest-github-actions-annotate-failures = [
-    {file = "pytest-github-actions-annotate-failures-0.1.5.tar.gz", hash = "sha256:42a7e58c583f69a0a85302c04c04c060881ed170bcffcc57be2b6b8673b8a879"},
-    {file = "pytest_github_actions_annotate_failures-0.1.5-py2.py3-none-any.whl", hash = "sha256:5ab85c83e1a4a5143e4d3cf0d53b7c33938ac384e19b79ce7363244a4e1811f6"},
-]
-toml = [
-    {file = "toml-0.10.2-py2.py3-none-any.whl", hash = "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b"},
-    {file = "toml-0.10.2.tar.gz", hash = "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"},
+    {file = "pytest-github-actions-annotate-failures-0.1.7.tar.gz", hash = "sha256:c6af8f9d13f1f09ef4c104a30875a4975db131ddbba979c8e48fdc456c8dde1f"},
+    {file = "pytest_github_actions_annotate_failures-0.1.7-py2.py3-none-any.whl", hash = "sha256:c4a7346d1d95f731a6b53e9a45f10ca56593978149266dd7526876cce403ea38"},
 ]
