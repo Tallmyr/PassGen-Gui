@@ -59,17 +59,8 @@ def main() -> None:
     # Setup Context
     dpg.create_context()
 
-    # Set Font
-    with dpg.font_registry():
-        default_font = dpg.add_font(
-            "app/resources/Caskaydia Cove Nerd Font Complete Windows Compatible Regular.otf",
-            15,
-        )
-
     # Main Window
     with dpg.window(tag="Primary"):
-        dpg.bind_font(default_font)
-
         dpg.add_text("Password Generating software.")
 
         dpg.add_spacer(height=20)
