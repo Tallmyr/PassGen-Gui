@@ -119,7 +119,7 @@ def main() -> None:
 
         dpg.add_spacer(height=15)
         dpg.add_text("Allow similar Letters and symbols? (B/8, G/6, I/1 etc)")
-        dpg.add_checkbox(label="Similar", default_value=False, tag="Similar")
+        dpg.add_checkbox(label="Allow Similar", default_value=False, tag="Similar")
 
         dpg.add_spacer(height=15)
         dpg.add_text("Set length of password:")
