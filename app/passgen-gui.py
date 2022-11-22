@@ -86,16 +86,29 @@ def main() -> None:
     with dpg.window(tag="Primary"):
         dpg.add_text("Password Generating software.")
 
-        dpg.add_spacer(height=20)
-        dpg.add_text("Please choose your settings:")
+        dpg.add_spacer(height=15)
+        dpg.add_text("Select what type of Characters you wish to use:")
+        dpg.add_group(horizontal=True, tag="Boxes")
         dpg.add_checkbox(
-            label="Letters", default_value=True, tag="Letters", callback=lock_if_invalid
+            label="Letters",
+            default_value=True,
+            tag="Letters",
+            callback=lock_if_invalid,
+            parent="Boxes",
         )
         dpg.add_checkbox(
-            label="Numbers", default_value=True, tag="Numbers", callback=lock_if_invalid
+            label="Numbers",
+            default_value=True,
+            tag="Numbers",
+            callback=lock_if_invalid,
+            parent="Boxes",
         )
         dpg.add_checkbox(
-            label="Symbols", default_value=True, tag="Symbols", callback=lock_if_invalid
+            label="Symbols",
+            default_value=True,
+            tag="Symbols",
+            callback=lock_if_invalid,
+            parent="Boxes",
         )
         dpg.add_text(
             "Invalid Selection, please select one or more character types",
@@ -104,32 +117,34 @@ def main() -> None:
             show=False,
         )
 
-        dpg.add_spacer(height=10)
+        dpg.add_spacer(height=15)
         dpg.add_text("Allow similar Letters and symbols? (B/8, G/6, I/1 etc)")
         dpg.add_checkbox(label="Similar", default_value=False, tag="Similar")
 
-        dpg.add_spacer(height=10)
+        dpg.add_spacer(height=15)
+        dpg.add_text("Set length of password:")
         dpg.add_slider_int(
-            label="Password Length",
             min_value=1,
             max_value=50,
             default_value=12,
             tag="Length",
-            callback=check_short_password
+            callback=check_short_password,
         )
         dpg.add_text(
             "This is a short password. Are you sure you wish to do this?",
             tag="length_warning",
             show=False,
-            color=[255, 0, 0]
+            color=[255, 0, 0],
         )
         dpg.add_button(
             label="Generate Password", callback=generate_password, tag="Generate"
         )
-        dpg.add_spacer(height=20)
+        dpg.add_spacer(height=40)
         dpg.add_text("Your new password:")
-        dpg.add_input_text(tag="Password")
+        dpg.add_input_text(tag="Password", enabled=False)
         dpg.add_button(label="Copy to Clipboard", callback=copy_to_clipboard)
+
+        dpg.show_style_editor()
 
     # Display Everything
     dpg.create_viewport(title="PassGen GUI", width=550, height=500)
