@@ -144,8 +144,6 @@ def main() -> None:
         dpg.add_input_text(tag="Password", enabled=False)
         dpg.add_button(label="Copy to Clipboard", callback=copy_to_clipboard)
 
-        dpg.show_style_editor()
-
     # Display Everything
     dpg.create_viewport(title="PassGen GUI", width=550, height=500)
     dpg.setup_dearpygui()
